@@ -8,13 +8,20 @@ type Todo = {
 
 interface TodoListProps {
   todos: Todo[];
+  onDelete: (id: number) => void;
+  onToggle: (id: number) => void;
 }
 
-function TodoList({ todos, onDelete }: TodoListProps) {
+function TodoList({ todos, onDelete, onToggle }: TodoListProps) {
   return (
     <ul>
       {todos.map((todo) => (
-        <TodoItem todo={todo} onDelete={onDelete} />
+        <TodoItem
+          key={todo.id}
+          todo={todo}
+          onDelete={onDelete}
+          onToggle={onToggle}
+        />
       ))}
     </ul>
   );

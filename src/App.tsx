@@ -22,11 +22,19 @@ function App() {
     setTodos(newTodos);
   };
 
+  const onToggle = (id: number): void => {
+    const newTodos = todos.map((todo) =>
+      todo.id === id ? { ...todo, checked: !todo.checked } : todo
+    );
+
+    setTodos(newTodos);
+  };
+
   return (
     <>
       <h3>Todo List App</h3>
       <TodoForm onInsert={onInsert} />
-      <TodoList todos={todos} onDelete={onDelete} />
+      <TodoList todos={todos} onDelete={onDelete} onToggle={onToggle} />
     </>
   );
 }
