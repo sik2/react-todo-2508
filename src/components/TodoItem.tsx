@@ -1,8 +1,15 @@
-function TodoItem() {
+type Todo = {
+  id: number;
+  text: string;
+  checked: boolean;
+};
+
+function TodoItem({ todo }: { todo: Todo }) {
   return (
     <li>
+      {todo.id}
       <input type="checkbox" />
-      할일아이템
+      {todo.text}
       <button>X</button>
     </li>
   );
