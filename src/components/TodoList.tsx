@@ -10,11 +10,11 @@ interface TodoListProps {
   todos: Todo[];
 }
 
-function TodoList({ todos }: TodoListProps) {
+function TodoList({ todos, onDelete }: TodoListProps) {
   return (
     <ul>
       {todos.map((todo) => (
-        <TodoItem todo={todo} />
+        <TodoItem todo={todo} onDelete={onDelete} />
       ))}
     </ul>
   );
